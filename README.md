@@ -87,6 +87,7 @@ The following options are supported
  - `keys`: Specify the keys you'd like to output. In the default setting all keys are exported.
  - `eol`: End-of-line marker. Default is the one used by the operating system.
  - `showHeader`: If you don't want the header line in your csv set to `false`. Default is `true`.
+ - `escapeValues`: If true will wrap each value with \". Default is `false`.
 
 ### Use optional custom delimiter
 
@@ -127,6 +128,17 @@ If you want your csv data without the header line set `showHeader` to `false`;
 ```javascript
 var parser = new MyStream({
   showHeader: false
+});
+```
+
+### Use with wrapping individual values in double-quotes
+
+If your values contain the same character as your delimiter set the `escapeValues` option to `true`.
+Doing so will wrap each value in double-quotes.
+
+```javascript
+var parser = new MyStream({
+  escapeValues: true
 });
 ```
 
