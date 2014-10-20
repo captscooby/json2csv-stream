@@ -45,6 +45,7 @@ var MyStream = function(options) {
   this.keys = options.keys;
   this.eol = options.eol || os.EOL;
   this.showHeader = options.showHeader !== false;
+  this.escapeValues = options.escapeValues || false;
 
   this._headerWritten = false;
   this._header = [];
@@ -150,7 +151,11 @@ MyStream.prototype.writeLine = function(line) {
   // iterate over all keys
   var iterator = function(item, callback) {
     var val = lineObject[item];
-    that._line.push(val);
+    if(that.escapeValues) {
+      that._line.push('\"' + val + '\"');
+    } else {
+      that._line.push(val);
+    }
     callback(null);
   };
   async.each(keys, iterator, function(err) {
