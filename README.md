@@ -1,20 +1,17 @@
-# json2csv-stream
+# json2csv-stream-plus
 
-[![Build Status](https://travis-ci.org/zemirco/json2csv-stream.png)](https://travis-ci.org/zemirco/json2csv-stream)
+Forked from this repo [json2csv-stream](https://github.com/zemirco/json2csv-stream).  ALL credit should go to it's original author.  This version was created to fill a need with a current project and has been shared in case it is useful for anyone else out there.
 
-**Deprecated: No time for maintenance**
+The original repo is deprecated and is no longer being maintained.  This repo can be maintained if there is wider interest in using it.
 
-Transform json to csv data. The difference to my other module
-[json2csv](https://github.com/zemirco/json2csv) is `json2csv-stream` uses streams for transforming the incoming
-data. The module is built with the new streaming API from Node.js v0.10.0 but maintains backwards compatibility
-to earlier Node.js versions.
+This module transforms json to csv data using streams for transforming the incoming data. The module is built with the new streaming API from Node.js v0.10.0 but maintains backwards compatibility to earlier Node.js versions.
 
 Listen for `header` and `line` events or pipe the data directly to a readable stream.
 
 Install with
 
 ```bash
-$ npm install json2csv-stream
+$ npm install json2csv-stream-plus
 ```
 
 ## Transform and pipe data to readable stream
@@ -32,7 +29,7 @@ Input - data.json
 Transformation process
 ```javascript
 var fs = require('fs');
-var MyStream = require('json2csv-stream');
+var MyStream = require('json2csv-stream-plus');
 
 // create the transform stream
 var parser = new MyStream();
@@ -72,7 +69,7 @@ parser.on('line', function(data) {
 ## Usage
 
 ```javascript
-var MyStream = require('json2csv-stream');
+var MyStream = require('json2csv-stream-plus');
 
 // create the parsing stream with default options
 var parser = new MyStream();
@@ -153,7 +150,7 @@ $ node benchmark.js
 Results:
 
 ```
-Executed benchmark against node module: "json2csv-stream"
+Executed benchmark against node module: "json2csv-stream-plus"
 Count (34), Cycles (3), Elapsed (6.179 sec), Hz (563.3422353498144 ops/sec)
 
 Executed benchmark against node module: "json2csv"
@@ -176,7 +173,7 @@ or
 $ npm test
 ```
 
-## License
+## Original License
 
 Copyright (C) 2012 [Mirco Zeiss](mailto: mirco.zeiss@gmail.com)
 
